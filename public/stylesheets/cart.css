@@ -1,0 +1,25 @@
+img.media-object {
+    width: 72px; 
+    height: 72px;
+    margin-right: 10px;
+}
+
+input.count-products{
+    width: 80px;
+}
+
+.label-address {
+    color: blue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 20px;
+}
+
+.form-area{
+    margin-left: 20px;
+}
+
+.form-group input{
+    margin: 5px;
+}

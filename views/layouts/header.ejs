@@ -1,0 +1,127 @@
+<header>
+    <div class="header-top">
+        <div class="container">
+            <div class="row justify-content-between align-self-center">
+                <div class="col-md-7">
+                    <p>Hotline: <span class="hotline">028.3835.0096 - 0938.495.736</span>
+                        | Email: <span class="email">support@gmail.com</span>
+                    </p>
+                </div>
+                <div class="col-md-5 pull-right">
+                    <% if (data && data.islogin){%>
+                    <div class="row pull-right">
+                        <div class="dropdown">
+                            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class='fa fa-user'></i>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="/profile">Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                            </div>
+                        </div>
+                        <a href="/cart">
+                            <i class="fa fa-shopping-cart">
+                                <span class="badge" style="background: white"><%=data.totalQty%></span>
+                            </i> Kiểm tra giỏ hàng
+                        </a>
+                    </div>
+
+                    <%}%>
+                    <% if (data && !data.islogin){%>
+                    <a href="/signin" class="account-link "><i class="fa fa-sign-in"></i> Đăng nhập</a>
+                    <a href="/signup" class="register-link"><i class="fa fa-check"></i> Đăng ký </a>
+                    <a href="/cart">
+                        <i class="fa fa-shopping-cart">
+                            <span class="badge" style="background: white"><%=data.totalQty%></span>
+                        </i> Kiểm tra giỏ hàng
+                    </a>
+                    <%}%>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-4 top-social row">
+                <span>Follow me:</span>
+                <div class="icon flex-row">
+                    <a href="" target="_blank">
+                        <i class="fa fa-facebook-f"></i></a>
+                    <a href="" target="_blank">
+                        <i class="fa fa-youtube"></i></a>
+                    <a href="" target="_blank">
+                        <i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="logo col-md-4 center">
+                <a href="/" title="Mr Mon Shop">
+                    <img class="logo" src="/static/images/logo.jpg" alt="Mr Mon Shop" >
+                </a>
+            </div>
+            <div class="col-md-4 search-cart pull-right">
+                <!-- SEARCH HEADER -->
+                <div class="top-search search-wrapper">
+                    <form id="search_mini_form" action="/search">
+                        <div class="form-search">
+                            <input type="hidden" name="type" value="product">
+                            <input type="text" name="q" placeholder="Bạn cần tìm gì?" class="input-text" maxlength="128"
+                                autocomplete="off">
+                            <button type="submit" title="Search" class=" fa fa-search btn-search"><span></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="container">
+        <ul class="dropdown">
+            <li class="drop"><a href="/collections/1">Gấu bông</a>
+            </li>
+            <li class="drop"><a href="/collections/2">Đồ dùng cá nhân</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Balo / Túi / Ví</a></li>
+                    <li><a href="#">Đồng hồ</a></li>
+                    <li><a href="#">Giày / Dép</a></li>
+                    <li><a href="#">Phụ kiện cá nhân</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="/collections/3">Đồ dùng tiện ích</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Móc khoá</a></li>
+                    <li><a href="#">Văn phòng phẩm</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="/collections/4">Đồ chơi</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Đồ chơi bé trai</a></li>
+                    <li><a href="#">Đồ chơi bé gái</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="/collections/5">Truyện tranh</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Truyện ngắn</a></li>
+                    <li><a href="#">Tập tuyển chọn</a></li>
+                    <li><a href="#">Truyện dài</a></li>
+                    <li><a href="#">Doraemon Thêm</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="/collections/6">Quà lưu niệm</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Trưng bày</a></li>
+                    <li><a href="#">Gói quà</a></li>
+                    <li><a href="#">Gia dụng</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</header>

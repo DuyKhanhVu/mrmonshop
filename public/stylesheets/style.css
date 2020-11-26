@@ -1,0 +1,176 @@
+.logo {
+  width: 85px;
+}
+
+.header-top{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(100, 200, 255) 66%, rgb(50, 150, 255) 83%);
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+ul{
+  list-style-type:none;
+  padding: 0;
+}
+
+.hotline{
+  color: #06a2d2;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.email{
+  font-weight: bold;
+}
+
+.pull-right{
+  text-align: right;
+}
+
+a{
+  font-weight: bold;
+  color: blue;
+}
+
+.icon {
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.center {
+  text-align: center;
+}
+
+.input-text {
+  height: 35px;
+}
+
+.btn-search {
+  width: 35px;
+  height: 35px;
+  margin-left: -5px; 
+  color: rgb(50, 150, 255);
+}
+
+nav{
+  margin: 1em auto;
+}
+
+ul{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+ul.dropdown{ 
+  list-style:none;  
+  position: relative; 
+  width: 100%; 
+}
+
+ul.dropdown li{ 
+  font-weight: bold; 
+  float: left; 
+  width: 16.66%; 
+  position: relative;
+  background: rgb(200, 250, 255);
+}
+
+ul.sub_menu li{ 
+  font-weight: bold; 
+  float: left; 
+  width: 180px; 
+  position: relative;
+  background: rgb(200, 250, 255);
+}
+
+ul.dropdown a:hover{ 
+  color: #000; 
+}
+
+ul.dropdown li a { 
+  display: block; 
+  padding: 10px 8px;
+  color: #34495e; 
+  position: relative; 
+  z-index: 2000; 
+  text-align: center;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+ul.dropdown li a:hover,
+ul.dropdown li a.hover{ 
+  background: rgb(50, 150, 255);
+  position: relative;
+  color: #fff;
+  transition:0.5s ease;
+}
+
+ul.dropdown ul{ 
+  display: none;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 180px; 
+  z-index: 1000;
+}
+
+
+ul.dropdown ul li {
+  font-weight: normal; 
+  background: #f6f6f6; 
+  color: #000; 
+  border-bottom: 1px solid #ccc; 
+}
+
+ul.dropdown ul li a{ 
+  display: block; 
+  color: #34495e !important;
+  background: #eee !important;
+} 
+
+ul.dropdown ul li a:hover{
+  display: block; 
+  background: rgb(50, 150, 255) !important;
+  color: #fff !important;
+} 
+
+ul.dropdown ul li a:hover{
+  display: block; 
+  background: rgb(50, 150, 255);
+  color: #fff;
+} 
+
+li.drop a::after {
+  display: none;
+}
+
+.drop > a{
+  position: relative;
+}
+
+.drop > a:after{
+    content: "";
+    position: absolute;
+    right: 11px;
+    top: 46%;
+    border-left: 10px solid transparent;
+    border-top: 10px solid #333;
+    border-right: 10px solid transparent;
+    z-index: 999;
+}
+
+.drop > a:hover:after{
+  content:"";
+   border-left: 10px solid transparent;
+  border-top: 10px solid #fff;
+  border-right: 10px solid transparent;
+}
+
+.footer-static-container {
+  margin: 10px;
+  background: linear-gradient(180deg, rgb(50, 150, 255) 0%, rgb(200, 250, 255) 100%);
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <link rel="stylesheet" href="/static/stylesheets/collections.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Chi tiết sản phẩm</title>
+
+</head>
+
+<body>
+    <% include ./layouts/header %>
+    <div class="container">
+        <br>
+        <hr>
+
+        <div class="card">
+            <div class="row">
+                <aside class="col-sm-5 border-right">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            <div> <img src="<%=data.product.image%>" style="width: 450px;"></div>
+                        </div> <!-- slider-product.// -->
+                    </article> <!-- gallery-wrap .end// -->
+                </aside>
+                <aside class="col-sm-7">
+                    <article class="card-body p-5">
+                        <h3 class="title mb-3"><%=data.product.name%></h3>
+
+                        <p class="price-detail-wrap">
+                            <span class="price h3 text-warning">
+                                <span class="num"><%=data.product.price%></span><span class="currency">
+                                    VNĐ</span>
+                            </span>
+
+                        </p> <!-- price-detail-wrap .// -->
+                        <dl class="item-property">
+                            <dt>Mô tả</dt>
+                            <dd>
+                                <%=data.product.description%>
+                            </dd>
+                        </dl>
+                        <a href="/cart/add-to-cart/<%=data.id%>" class="btn btn-lg btn-outline-danger text-uppercase">Mua ngay</a>
+                    </article> <!-- card-body.// -->
+                </aside> <!-- col.// -->
+            </div> <!-- row.// -->
+        </div> <!-- card.// -->
+    </div>
+    <!--container.//-->
+    <% include ./layouts/footer %>
+
+    <script src="/static/javascripts/bootstrap.js"></script>
+    <script src="/static/javascripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="/static/javascripts/popper.min.js"></script>
+</body>
+
+</html>

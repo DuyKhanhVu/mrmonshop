@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <link rel="stylesheet" href="/static/stylesheets/collections.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Sản phẩm</title>
+
+</head>
+
+<body>
+    <% include ./layouts/header %> 
+    <div class="container">
+        <div class="upcoming py-5">
+            <div class="container">
+                <div class="row pb-4 text-center">
+                    <div class="col-md-12">
+                        <h2>Luôn đem đến sự hài lòng cho khách hàng</h2>
+                        <p>MrMon là nơi tập trung tất cả các sản phẩm tốt nhất với giá cả phải
+                            chăng giúp khách hàng thoải mái lựa chọn.</p>
+                    </div>
+                </div>
+                <form class="form-group row" action="/view-car" method="POST">
+
+                    <label class="col-form-label">Sắp xếp theo</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="brand">
+                            <option>Mới nhất</option>
+                            <option>Giá: Tăng dần</option>
+                            <option>Giá: Giảm dần</option>
+                            <option>Tên: A-Z</option>
+                            <option>Tên: Z-A</option>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-outline-primary float-right" value="Tìm">
+                </form>
+
+                <div class="row text-center">
+                    <%for (var i = 0; i < data.dataRender.products.length; i++){%>
+                    <div class="col-md-3 box border py-4">
+                        <div class="box-carimage">
+                            <img src="<%=data.dataRender.products[i].image%>" style="width: 200px; height: 200px;">
+                        </div>
+                        <div class="box-cartitle">
+                            <h4>
+                                <%=data.dataRender.products[i].name%>
+                            </h4>
+                        </div>
+                        <div class="box-carprice">
+                            <h6><%=data.dataRender.products[i].price%> VNĐ</h6>
+                        </div>
+                        <a href="/product/<%=data.dataRender.products[i].id%>">
+                            <button class="btn btn-outline-primary">Chi tiết</button>
+                        </a>
+                    </div>
+                    <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% include ./layouts/footer %>
+
+    <script src="/static/javascripts/bootstrap.js"></script>
+    <script src="/static/javascripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="/static/javascripts/popper.min.js"></script>
+</body>
+
+</html>

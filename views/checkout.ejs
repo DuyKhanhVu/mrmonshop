@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <link rel="stylesheet" href="/static/stylesheets/cart.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Thanh toán</title>
+
+</head>
+
+<body>
+    <% include ./layouts/header %>
+    <form id="" role="form" method="POST" action="/checkout/bill">
+        <div class="container">
+            <div class="label-address"><span class="fa fa-map-marker"> Địa chỉ nhận hàng </span></div>
+
+            <div class="form-area">
+                <input type="hidden" name="id" class="form-control col-md-3" readonly>
+
+                <div class="form-group row">
+                    <input type="text" class="form-control col-md-3" name="display_name" placeholder="Tên" required
+                        <% if (data && data.islogin){%>value="<%=data.user.display_name%>"
+                        <%}%>>
+                    
+                    <input type="email" class="form-control col-md-3" name="email" placeholder="Email" required <% if (data && data.islogin){%>value="<%=data.user.email%>"
+                        <%}%>>
+
+                    <input type="number" class="form-control col-md-3" name="phone" placeholder="Số điện thoại" <% if (data && data.islogin){%>value="<%=data.user.phone%>"
+                        <%}%>
+                        required>
+                </div>
+
+                <div class="form-group row">
+                    <input type="text" class="form-control col-md-9" name="address" placeholder="Địa chỉ giao hàng " required <% if (data && data.islogin){%>value="<%=data.user.address%>" <%}%>>
+                </div>
+            
+        </div>
+    </div>
+    <% if (data && data.totalQty==0){%> <div class="container">
+                    <table class="table table-hover col-md-12">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">Sản phẩm</th>
+                                <th class="col-md-2">Số lượng</th>
+                                <th class="text-center">Giá tiền</th>
+                                <th class="text-center">Tổng cộng</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h5>Chưa só sản phẩm trong giỏ hàng</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h5>Thành tiền</h5>
+                                </td>
+                                <td class="text-right">
+                                    <h5><strong>0</strong></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h5>Phí vận chuyển</h5>
+                                </td>
+                                <td class="text-right">
+                                    <h5><strong>0</strong></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h3>Tổng cộng</h3>
+                                </td>
+                                <td class="text-right">
+                                    <h3><strong>0</strong></h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <a href="/">
+                                        <button type="button" class="btn btn-default">
+                                            <span class="fa fa-shopping-cart"> Tiếp tục mua hàng</span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/checkout">
+                                        <button type="button" class="btn btn-success" style="visibility: hidden">
+                                            <span class="fa fa-credit-card"> Thanh toán </span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <%}%>
+    <% if (data && data.totalQty>0){%>
+                <div class="container">
+                    <table class="table table-hover col-md-12">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">Sản phẩm</th>
+                                <th></th>
+                                <th class="col-md-2">Số lượng</th>
+                                <th class="text-center">Giá tiền</th>
+                                <th class="text-center">Tổng cộng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (var i=0; i < data.products.length; i++) { %>
+
+                            <tr>
+                                <td class="">
+                                    <div class="media">
+                                        <img class="media-object" src="<%=data.products[i].item.image%>">
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><%=data.products[i].item.name%></h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td class="text-center">
+                                    <input class="count-products form-control text-center" id=""
+                                        value="<%=data.products[i].qty%>" readonly>
+                                </td>
+                                <td class="text-center"><strong><%=data.products[i].item.stringprice%></strong></td>
+                                <td class="text-center"><strong><%=data.products[i].stringprice%></strong></td>
+
+                            </tr>
+                            <%}%>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                                <h5>Thành tiền</h5>
+                            </td>
+                            <td class="text-right">
+
+                                <h5><strong> <%=data.totalPrice%></strong></h5>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h5>Phí vận chuyển</h5>
+                                </td>
+                                <td class="text-right">
+                                    <h5><strong>120,000</strong></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h3>Tổng cộng</h3>
+                                </td>
+                                <td class="text-right">
+                                    <h3><strong><%=data.cost%></strong></h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <a href="/">
+                                        <button type="button" class="btn btn-default">
+                                            <span class="fa fa-shopping-cart"> Tiếp tục mua hàng</span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    
+                                        <button type="submit" class="btn btn-primary" >
+                                            <span class="fa fa-credit-card"> Đặt mua </span>
+                                        </button>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <%}%>
+    </form>
+    <% include ./layouts/footer %>
+                <script src="/static/javascripts/bootstrap.js"></script>
+                <script src="/static/javascripts/jquery-3.3.1.slim.min.js"></script>
+                <script src="/static/javascripts/popper.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <link rel="stylesheet" href="/static/stylesheets/home.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Mr Mon Shop</title>
+    <link rel="shortcut icon" href="/static/images/fav.ico" type="image/x-icon">
+</head>
+
+<body>
+    <% include ./layouts/header %>   
+    <div class="container">
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="/collections/6"><img src="https://theme.hstatic.net/1000069863/1000429927/14/slider_1.jpg?v=240" alt="">
+                    </a> 
+                </div>
+                <div class="carousel-item">
+                    <a href="/collection/1"><img src="https://theme.hstatic.net/1000069863/1000429927/14/slider_2.jpg?v=240" alt="Chicago">
+                    </a> 
+                </div>
+                <div class="carousel-item">
+                    <a href="/collections/4"><img src="https://theme.hstatic.net/1000069863/1000429927/14/slider_3.jpg?v=240" alt="New York">
+                    </a> 
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="upcoming py-5">
+        <div class="container">
+            <div class="row pb-4 text-center">
+                <div class="col-md-12">
+                    <h2>Sản phẩm mới & Xu hướng</h2>
+                    <p> Những sản phẩm mới và các sản phẩm được yêu thích tại Siêu thị máy tính.</p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <% for (var i=0; i < 4; i++) { %>
+                <div class="col-md-3 box border py-4">
+                    <div class="box-carimage">
+                        <img src="<%=data.products[i].image%>" style="height: 180px">
+                    </div>
+                    <div class="box-cartitle">
+                        <h5>
+                            <%=data.products[i].name%>
+                        </h5>
+                    </div>
+                    <div class="box-carprice">
+                        <h6>
+                            <%=data.products[i].price%> VNĐ
+                        </h6>
+                    </div>
+                    <a href="/product/<%=data.products[i].id%>">
+                        <button class="btn btn-outline-primary">Chi tiết</button>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+            <div class="row text-center pt-4">
+                <div class="col-md-12">
+                    <a href="/collections/1"> <button class="btn btn-outline-primary">Tất cả sản phẩm </button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 py-3 border">
+                    <div class="row">
+                        <div class="col-md-3 mt-2">
+                            <img src="http://klbtheme.com/froday/wp-content/uploads/2018/02/tablet.png">
+                        </div>
+                        <div class="col-md-9">
+                            <h5>Ưu đãi & giảm giá</h5>
+                            <p>Khách hàng của MrMon sẽ được hưởng ưu đãi khi thường xuyên mua hàng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 border">
+                    <div class="row">
+                        <div class="col-md-3 mt-2">
+                            <img src="http://klbtheme.com/froday/wp-content/uploads/2018/02/online-shop-6.png">
+                        </div>
+                        <div class="col-md-9">
+                            <h5>Chuyên nghiệp</h5>
+                            <p>Khách hàng có thể dễ dàng đặt hàng qua hệ thống hoặc điện thoại. Sản phẩm của khách hàng sẽ được vận chuyển nhanh nhất có thể.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 py-3 border">
+                    <div class="row">
+                        <div class="col-md-3 mt-2">
+                            <img src="http://klbtheme.com/froday/wp-content/uploads/2018/02/money.png">
+                        </div>
+                        <div class="col-md-9">
+                            <h5>Tiết kiệm chi phí</h5>
+                            <p>MrMon đảm bảo giá thành cạnh tranh đem lại lợi ích cho khách hàng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <% include ./layouts/footer %>
+                <script src="/static/javascripts/bootstrap.js"></script>
+                <script src="/static/javascripts/jquery-3.3.1.slim.min.js"></script>
+                <script src="/static/javascripts/popper.min.js"></script>
+                <script>
+                    var maxHeight = 400;
+                    $(function () {
+                        $(".dropdown > li").hover(function () {
+                            var $container = $(this),
+                                $list = $container.find("ul"),
+                                $anchor = $container.find("a"),
+                                height = $list.height() * 1.1,       // make sure there is enough room at the bottom
+                                multiplier = height / maxHeight;     // needs to move faster if list is taller
+
+                            // need to save height here so it can revert on mouseout            
+                            $container.data("origHeight", $container.height());
+
+                            // so it can retain it's rollover color all the while the dropdown is open
+                            $anchor.addClass("hover");
+
+                            // make sure dropdown appears directly below parent list item    
+                            $list
+                                .show()
+                                .css({
+                                    paddingTop: $container.data("origHeight")
+                                });
+
+                            // don't do any animation if list shorter than max
+                            if (multiplier > 1) {
+                                $container
+                                    .css({
+                                        height: maxHeight,
+                                        overflow: "hidden"
+                                    })
+                                    .mousemove(function (e) {
+                                        var offset = $container.offset();
+                                        var relativeY = ((e.pageY - offset.top) * multiplier) - ($container.data("origHeight") * multiplier);
+                                        if (relativeY > $container.data("origHeight")) {
+                                            $list.css("top", -relativeY + $container.data("origHeight"));
+                                        };
+                                    });
+                            }
+                        }, function () {
+                            var $el = $(this);
+                            // put things back to normal
+                            $el
+                                .height($(this).data("origHeight"))
+                                .find("ul")
+                                .css({ top: 0 })
+                                .hide()
+                                .end()
+                                .find("a")
+                                .removeClass("hover");
+                        });
+                    });
+                </script>
+</body>
+
+</html>
